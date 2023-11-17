@@ -1,2 +1,3 @@
-# cpp-py-smart-pointers-research
-Experiments with C++ smart pointers and Python bindings
+# C++/Python Smart Pointers Research
+
+This repository is for experiments with C++ smart pointers and Python bindings.
