@@ -1,11 +1,13 @@
 #pragma once
 
-class Foo {
+#include "../common.h"
+
+class API Foo {
 public:
-    Foo(int x);
+    Foo();
     int x() const;
     void setX(int x);
 
 private:
-    int x_;
+    int x_ = 0;
 };

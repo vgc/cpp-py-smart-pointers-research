@@ -1,7 +1,6 @@
 #include "foo.h"
 
-Foo::Foo(int x)
-    : x_(x) {
+Foo::Foo() {
 }
 
 int Foo::x() const {
