@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.12...3.22)
+project(cpp-py-smart-pointers-research)
+set(CMAKE_CXX_STANDARD 17)
+add_subdirectory(third/pybind11)
+add_subdirectory(libs)
