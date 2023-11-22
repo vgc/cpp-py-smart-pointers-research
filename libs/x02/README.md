@@ -16,7 +16,7 @@ be indirectly reset or destructed, for example:
 
 ```
 void foo(Node& node) {
-    if (Node* parent = node->parent()) {
+    if (Node* parent = node.parent()) {
         parent->clearChildren();
     }
     std::cout << node.name() << std::endl; // Segfault
