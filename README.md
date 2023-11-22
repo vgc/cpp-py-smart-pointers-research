@@ -11,6 +11,7 @@ Experiment      | Description
 --------------- | -----------
 [x01](libs/x01) | Basic by-value class, no smart pointers
 [x02](libs/x02) | Tree structure using std::unique_ptr
+[x03](libs/x03) | Tree structure using std::shared_ptr (minimal)
 
 # How to build?
 
