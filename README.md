@@ -7,10 +7,10 @@ in a separate folder, e.g., `libs/x01`.
 
 Below is a quick description of each experiment:
 
-| Experiment      | Description |
-| --------------- | ----------- |
-| [x01](libs/x01) | Basic by-value class, no smart pointers |
-| [x02](libs/x02) | Tree structure using std::unique_ptr |
+Experiment      | Description
+--------------- | -----------
+[x01](libs/x01) | Basic by-value class, no smart pointers
+[x02](libs/x02) | Tree structure using std::unique_ptr
 
 # How to build?
 
