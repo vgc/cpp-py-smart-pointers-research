@@ -57,8 +57,6 @@ using rvp = py::return_value_policy;
 //   	(arg0: x03.Tree) -> std::__1::weak_ptr<Node>
 //
 
-#define TO_SHARED(fn) []()
-
 void wrap_node(py::module& m) {
     py::class_<Node, NodeSharedPtr>(m, "Node")
 

@@ -46,7 +46,7 @@ void foo(Node& node) {
 }
 ```
 
-This is memory-safe, however there are two things to be mindful of:
+This is memory-safe, however there are a few things to be mindful of:
 
 1. The Node class must now be designed and implemented to work even when
 "isolated", that is, removed from the Tree. In particular, the `tree` back
@@ -56,17 +56,17 @@ a raw pointer set to nullptr when the node is removed from the tree. Same thing
 for the the `parent` back pointer.
 
 2. We have to be careful about avoiding memory leaks due to cyclic references
-between `shared_ptr`.
+between `shared_ptr`. This cannot happen in this specific example, because when
+a node is removed from a tree, all its `shared_ptr` data members are explicitly
+removed. However, we show an example in x04 how it can happen.
 
-The second point is particularly tricky with Python bindings. By default, if a
-class `Node` inherits from `enable_shared_from_this`, then `pybind11` would
-store any pointers/reference to `Node` in a `shared_ptr`, while in some cases a
-`weak_ptr` would be more appropriate. In this implementation, we still use weak
-pointers in the C++ API whenever appropriate, but convert them to shared
-pointers in the Python bindings. This can cause memory leaks due to cyclic
-dependencies.
+3. The syntax to wrap functions that that return a `weak_ptr` (or take a
+`weak_ptr` as argument) is a bit clunky as pybind11 wouldn't automatically
+convert it to a `shared_ptr`. This might be automatable though with
+`py::implicitly_convertible`
 
-Also, this doesn't solve the issue that by default, a Python variable to a node
-wouldn't keep the Tree alive (we also have this issue with unique_ptr). This
-requires to manually specify `return_value_policy`, but it doesn't work well in
-case of reparenting: the thing to "keep alive" may change.
+4. Finally, this doesn't solve the issue that by default, a Python variable to
+a node wouldn't keep the Tree alive (we also have this issue with unique_ptr).
+This requires to manually specify `return_value_policy`, but it doesn't work
+well in case of reparenting: the thing to "keep alive" may change. We will
+explore in other experiments how to solve this.
