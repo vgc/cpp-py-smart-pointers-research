@@ -42,7 +42,28 @@ public:
         parent_ = parent;
     }
 
+    WidgetWeakPtr getWithArgs(int i, int j) {
+        value_ = i + j;
+        return parent_;
+    }
+
+    void setWithWeakArgs(WidgetWeakPtr w1, WidgetWeakPtr w2, int i) {
+        value_ = i;
+        parent_ = i < 2 ? w1 : w2;
+    }
+
+    WidgetWeakPtr getWithWeakArgs(WidgetWeakPtr w1, WidgetWeakPtr w2, int i) {
+        value_ = i;
+        parent_ = i < 2 ? w1 : w2;
+        return parent_;
+    }
+
+    int value() const {
+        return value_;
+    }
+
 private:
     std::string name_;
     WidgetWeakPtr parent_;
+    int value_;
 };

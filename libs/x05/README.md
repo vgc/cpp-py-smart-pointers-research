@@ -49,7 +49,16 @@ we've used a lambda to manually convert the weak_ptr into a shared_ptr:
 ```
 
 In this experiment, we explore ways to make the process easier with utility
-functions or macros.
+template functions or macros.
+
+Using template functions proved to be much better than using macros. It allows
+to write the following instead of the above, that is, it auto-magically works
+by detecting when there are weak_ptr involved and convert them appropriately:
+
+```
+    py::class_<Widget, WidgetSharedPtr> cl;
+    def(cl, "parent", &Widget::parent);
+```
 
 Note that this experiment is not meant to fix the memory leak problems seen in
 `x04`: we will still only hold shared_ptr on the Python side, which is prone
