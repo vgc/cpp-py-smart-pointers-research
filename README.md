@@ -13,6 +13,7 @@ Experiment      | Description
 [x02](libs/x02) | Tree structure using std::unique_ptr
 [x03](libs/x03) | Tree structure using std::shared_ptr (minimal)
 [x04](libs/x04) | Memory leaks with std::shared_ptr: Action/Widget cyclic dependency
+[x05](libs/x05) | Utilities for wrapping functions taking/returning std::weak_ptr
 
 # How to build?
 
