@@ -29,6 +29,7 @@ class Tests(unittest.TestCase):
 
         widget = Widget()
         widget.action = action
+        self.assertEqual(widget.action, action)
         widget.triggerAction()
         self.assertEqual(action.name, "newName")
 

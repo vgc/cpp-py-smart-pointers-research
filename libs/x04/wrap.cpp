@@ -26,7 +26,10 @@ void wrap_widget(py::module& m) {
     py::class_<Widget, WidgetSharedPtr>(m, "Widget")
         .def(py::init(&Widget::create))
         .def_property("name", &Widget::name, &Widget::setName)
-        .def_property("action", &Widget::action, &Widget::setAction)
+        .def_property(
+            "action",
+            [](const Widget& self) -> ActionSharedPtr { return self.action().lock(); },
+            &Widget::setAction)
         .def("triggerAction", &Widget::triggerAction)
         .def("refCounter", &Widget::refCounter);
 }

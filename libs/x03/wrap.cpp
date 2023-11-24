@@ -66,7 +66,7 @@ void wrap_node(py::module& m) {
         // the parent should not keep alive the child, hence rvp::reference
         .def_property_readonly(
             "parent",
-            [](Node& self, size_t i) -> NodeSharedPtr { return self.parent().lock(); },
+            [](Node& self) -> NodeSharedPtr { return self.parent().lock(); },
             rvp::reference)
 
         // the rvp does not matter here: pybind11 will make a copy into a Python string
