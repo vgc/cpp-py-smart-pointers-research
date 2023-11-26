@@ -79,7 +79,7 @@ class Tests(unittest.TestCase):
 
         widget.action = action
         self.assertEqual(pyRefcount(widget), 2)     # `widget` + lambda
-        self.assertEqual(pyRefcount(action), 1)     # `action` + `widget.action_`
+        self.assertEqual(pyRefcount(action), 1)     # `action`
         self.assertEqual(widgetRefCounter.count, 1) # pybind11 holder for `widget`
         self.assertEqual(actionRefCounter.count, 2) # pybind11 holder for `action` + `widget.action_`
 

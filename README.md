@@ -14,6 +14,7 @@ Experiment      | Description
 [x03](libs/x03) | Tree structure using std::shared_ptr (minimal)
 [x04](libs/x04) | Memory leaks with std::shared_ptr: Action/Widget cyclic dependency
 [x05](libs/x05) | Utilities for wrapping functions taking/returning std::weak_ptr
+[x06](libs/x06) | Fix leaks by exposing std::weak_ptr as separate Python class
 
 # How to build?
 
